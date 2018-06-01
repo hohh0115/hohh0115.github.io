@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。(坦白說漏掉這一項設定很不應該)">
+<meta name="description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。">
 <meta name="keywords" content="JavaScript,PHP,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS and PHP: $.ajax()的dataType參數">
 <meta property="og:url" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/index.html">
 <meta property="og:site_name" content="heHehE">
-<meta property="og:description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。(坦白說漏掉這一項設定很不應該)">
+<meta property="og:description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-06-01T06:39:37.092Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/1.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/2.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/3.PNG">
+<meta property="og:updated_time" content="2018-06-01T07:37:46.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS and PHP: $.ajax()的dataType參數">
-<meta name="twitter:description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。(坦白說漏掉這一項設定很不應該)">
+<meta name="twitter:description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/1.PNG">
 
 
 
@@ -342,7 +346,7 @@
       
 
       
-        <p>jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。<br>倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。(坦白說漏掉這一項設定很不應該)</p>
+        <p>jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。<br>倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。</p>
 <a id="more"></a>
 <p><strong>正常情況下：</strong></p>
 <pre><code>// 前端發起ajax請求，請求方式為POST方式
@@ -355,6 +359,9 @@ function get_something_by_ajax() {
         data: some_data,
 
         success: function(response_data) {
+            console.log(response_data)
+            console.log(typeof(response_data))
+            console.log(Object.prototype.toString.call(response_data))
             ...
         }
     });
@@ -362,10 +369,13 @@ function get_something_by_ajax() {
 
 //後端php接收請求，處理資料後回傳給發請ajax請求的函式
 public function get_my_ajax_request() {
-    ...
+    $response_data = array(&apos;1&apos;=&gt;&apos;王小明&apos;);
     echo json_encode($response_data);
 }
-</code></pre><p>若選擇把</p>
+</code></pre><p><strong>要注意到，當瀏覽器和伺服器互相傳遞資料時，資料的格式只能是文字串</strong><br>(<a href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank" rel="noopener">https://www.w3schools.com/js/js_json_intro.asp</a> &gt;&gt; “When exchanging data between a browser and a server, the data can only be text.”)</p>
+<p><code>json_encode($response_data)</code>使後端回傳了一個JSON字串，且由於<code>dataType: &#39;JSON&#39;,</code>的關係，瀏覽器預期收到一個JSON字串，並會準備解析成JavaScript物件，所以<code>console.log(response_data)</code>顯示的結果會是這樣：<br><img src="1.PNG" alt=""><br>因此我們可以針對這個物件做其中值「王小明」的存取。</p>
+<p>若把 <code>dataType: &#39;JSON&#39;,</code> 註解掉，瀏覽器不會解析成JavaScript物件，而是直接接收字串，則 <code>console.log(response_data)</code> 出來的內容則會變成這樣：<br><img src="2.PNG" alt=""><br>這就只是一個字串，若我們只想要值「王小明」是沒辦法的。(如果你只想要字串就沒差)<br>此時可以在前端中對response_data對處理 =&gt; jQuery.parseJSON(response_data)，所以<code>console.log(jQuery.parseJSON(response_data))</code>結果顯示：<br><img src="3.PNG" alt=""><br>這也就是jQuery.parseJSON()的功能：將JSON字符串轉為與之對應的JavaScript物件</p>
+<p>坦白說漏掉這一項設定很不應該的…</p>
 
       
     </div>
