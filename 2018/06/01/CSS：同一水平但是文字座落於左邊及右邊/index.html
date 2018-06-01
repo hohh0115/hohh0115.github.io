@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="zh">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,14 +79,20 @@
 
 
 
+<meta name="description" content="方法：使用 span 標籤並搭配css style =&amp;gt; style=”float: left” 以及 style=”float: right”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4 from orig computer agian">
-<meta property="og:url" content="http://yoursite.com/2018/05/26/4-from-orig-computer-agian/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-26T13:44:07.856Z">
+<meta property="og:title" content="CSS：同一水平但是文字座落於左邊及右邊">
+<meta property="og:url" content="http://yoursite.com/2018/06/01/CSS：同一水平但是文字座落於左邊及右邊/index.html">
+<meta property="og:site_name" content="heHehE">
+<meta property="og:description" content="方法：使用 span 標籤並搭配css style =&amp;gt; style=”float: left” 以及 style=”float: right”">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="http://yoursite.com/2018/06/01/CSS：同一水平但是文字座落於左邊及右邊/CSS：同一水平但是文字座落於左邊及右邊/example1.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/01/CSS：同一水平但是文字座落於左邊及右邊/CSS：同一水平但是文字座落於左邊及右邊/example2.PNG">
+<meta property="og:updated_time" content="2018-06-01T01:18:18.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4 from orig computer agian">
+<meta name="twitter:title" content="CSS：同一水平但是文字座落於左邊及右邊">
+<meta name="twitter:description" content="方法：使用 span 標籤並搭配css style =&amp;gt; style=”float: left” 以及 style=”float: right”">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/01/CSS：同一水平但是文字座落於左邊及右邊/CSS：同一水平但是文字座落於左邊及右邊/example1.PNG">
 
 
 
@@ -116,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/26/4-from-orig-computer-agian/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/01/CSS：同一水平但是文字座落於左邊及右邊/"/>
 
 
 
 
 
-  <title>4 from orig computer agian | Hexo</title>
+  <title>CSS：同一水平但是文字座落於左邊及右邊 | heHehE</title>
   
 
 
@@ -134,7 +140,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
 
   
   
@@ -152,7 +158,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">heHehE</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -249,16 +255,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/26/4-from-orig-computer-agian/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/CSS：同一水平但是文字座落於左邊及右邊/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="hohh0115">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="heHehE">
     </span>
 
     
@@ -266,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">4 from orig computer agian</h1>
+          <h1 class="post-title" itemprop="name headline">CSS：同一水平但是文字座落於左邊及右邊</h1>
         
 
         <div class="post-meta">
@@ -278,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-26T21:44:07+08:00">
-                2018-05-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-01T00:56:44+08:00">
+                2018-06-01
               </time>
             
 
@@ -316,7 +322,27 @@
       
 
       
-        
+        <p>方法：使用 span 標籤並搭配css style =&gt; style=”float: left” 以及 style=”float: right”</p>
+<a id="more"></a>
+<p>範例1：</p>
+<pre><code>&lt;tr&gt;
+    &lt;td class=&quot;table_td&quot; colspan=&quot;6&quot; scope=&quot;col&quot;&gt;
+        &lt;span style=&quot;float: left&quot;&gt;伍、輔導紀錄照片分享 (非必填)&lt;/span&gt;
+        &lt;span style=&quot;float: right&quot;&gt;&lt;font color=&quot;#FF0000&quot;&gt;*提供jpg、png照片檔案上傳，單張照片不得超過15MB。&lt;/font&gt;&lt;/span&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre><p> 範例1 效果：<br> <img src="CSS：同一水平但是文字座落於左邊及右邊/example1.PNG" alt=""></p>
+<p> 範例2：</p>
+<pre><code> &lt;div style=&quot;margin-top: 20px&quot;&gt;
+    &lt;span style=&quot;float: left&quot;&gt;
+        目前分類: {$class_type_ch} {if $school_province != &apos;&apos;} / {$school_province} / {$school_name} {/if}
+    &lt;/span&gt;
+    &lt;span style=&quot;float: right&quot;&gt;
+    ...
+    &lt;/span&gt;
+&lt;/div&gt;
+</code></pre><p>  範例2 效果：<br> <img src="CSS：同一水平但是文字座落於左邊及右邊/example2.PNG" alt=""></p>
+
       
     </div>
     
@@ -340,8 +366,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/26/4-from-orig-computer/" rel="next" title="4 from orig computer">
-                <i class="fa fa-chevron-left"></i> 4 from orig computer
+              <a href="/2018/05/31/網路基礎知識/" rel="next" title="網路基礎知識">
+                <i class="fa fa-chevron-left"></i> 網路基礎知識
               </a>
             
           </div>
@@ -405,7 +431,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-author-name" itemprop="name">hohh0115</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -416,7 +442,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -461,7 +487,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">hohh0115</span>
 
   
 </div>
