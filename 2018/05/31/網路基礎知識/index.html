@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="heHehE">
 <meta property="og:description" content="關於網路的基礎知識因為第一份工作是web backend developer，所以需要補足一些關於網路的基礎知識，這一篇就是當初的筆記。這些資料都是在網路上找來的，可惜時間久遠，是哪些網站的資料就沒有記下…">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="http://yoursite.com/2018/05/31/網路基礎知識/網路基礎知識/1416788286_3782248676.jpg">
-<meta property="og:updated_time" content="2018-06-01T03:08:25.100Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/31/網路基礎知識/1416788286_3782248676.jpg">
+<meta property="og:updated_time" content="2018-06-01T04:36:18.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="網路基礎知識">
 <meta name="twitter:description" content="關於網路的基礎知識因為第一份工作是web backend developer，所以需要補足一些關於網路的基礎知識，這一篇就是當初的筆記。這些資料都是在網路上找來的，可惜時間久遠，是哪些網站的資料就沒有記下…">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/31/網路基礎知識/網路基礎知識/1416788286_3782248676.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/31/網路基礎知識/1416788286_3782248676.jpg">
 
 
 
@@ -362,7 +362,7 @@
 <li>除了惡意程式的問題之外，網站的管理者也時常有機會使用 hosts 設定檔來測試自己網站，以我個人的經驗來說，當架設新網站或是轉移網站的過程都會需要藉由修改 hosts 設定檔，在網站正式公開之前，對網站做一些測試，避免公開網站後才發現問題，影響訪客的瀏覽。</li>
 </ul>
 <p>實際操作：<br>cmd中輸入 ping tw.yahoo.com 會得知從網路上DNS所查詢到的Yahoo奇摩主機IP位址是xxx.xxx.xxx.xxx，接著…我們將「127.0.0.1 tw.yahoo.com」加入到「hosts」檔案內，並且儲存檔案，當我們這樣設定時，電腦若要連線到「tw.yahoo.com」時，就會被導向「127.0.0.1」，也就是自己本身的電腦上，其意義就是讓它連不出去外面的網站，會出現「無法顯示此網頁」的訊息！<br>這時候再次輸入 ping tw.yahoo.com 時候，只會顯示127.0.0.1的位置</p>
-<p><img src="網路基礎知識/1416788286_3782248676.jpg" alt=""></p>
+<p><img src="1416788286_3782248676.jpg" alt=""></p>
 <p>我們可以了解到，如果我們想要自己定義主機名稱及IP的配對時，就可以去修改hosts的內容，這樣的優點就是可以加快連上網站的時間，因為它在連線時，不再需要向網際網路上的DNS主機要正確的IP位址，而是直接從hosts檔案中直接查詢，所以少了這次的查詢時，一開始連上的速度就會變快，這是一般我們常見的用途。<br>另一個用途比較特別，但也很常用，就是要讓電腦不要去造訪某些網站，為什麼要這麼做呢？這個就要靠你自己想了?</p>
 <p>就將它當作電話簿來解釋，林志玲的電話是0923756843，我們在電話簿中輸入好記的名字–林志玲(網域名稱)，去手機裡面(DNS Server)找出相對應的電話號碼(IP位置)。</p>
 <h2 id="3-127-0-0-1-是什麼-本機IP是什麼"><a href="#3-127-0-0-1-是什麼-本機IP是什麼" class="headerlink" title="3. 127.0.0.1 是什麼? 本機IP是什麼?"></a>3. 127.0.0.1 是什麼? 本機IP是什麼?</h2><ul>
