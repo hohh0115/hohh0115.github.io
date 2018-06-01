@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="牽涉到原生JavaScript中this的用法。作為JavaScript語言核心的this的介紹還是看別的地方的，這裡只記錄了用法。">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="方法：使用 span 標籤並搭配css style =&amp;gt; style=”float: left” 以及 style=”float: right”">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS：傳遞呼叫該函數的物件的方法">
-<meta property="og:url" content="http://yoursite.com/2018/06/01/JS：傳遞呼叫該函數的物件的方法/index.html">
+<meta property="og:title" content="CSS：同一水平但是文字座落於左邊及右邊">
+<meta property="og:url" content="http://yoursite.com/2018/06/01/CSS - 同一水平但是文字座落於左邊及右邊/index.html">
 <meta property="og:site_name" content="heHehE">
-<meta property="og:description" content="牽涉到原生JavaScript中this的用法。作為JavaScript語言核心的this的介紹還是看別的地方的，這裡只記錄了用法。">
+<meta property="og:description" content="方法：使用 span 標籤並搭配css style =&amp;gt; style=”float: left” 以及 style=”float: right”">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-06-01T03:19:59.041Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/01/CSS%20-%20同一水平但是文字座落於左邊及右邊/CSS：同一水平但是文字座落於左邊及右邊/example1.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/01/CSS%20-%20同一水平但是文字座落於左邊及右邊/CSS：同一水平但是文字座落於左邊及右邊/example2.PNG">
+<meta property="og:updated_time" content="2018-06-01T03:20:08.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS：傳遞呼叫該函數的物件的方法">
-<meta name="twitter:description" content="牽涉到原生JavaScript中this的用法。作為JavaScript語言核心的this的介紹還是看別的地方的，這裡只記錄了用法。">
+<meta name="twitter:title" content="CSS：同一水平但是文字座落於左邊及右邊">
+<meta name="twitter:description" content="方法：使用 span 標籤並搭配css style =&amp;gt; style=”float: left” 以及 style=”float: right”">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/01/CSS%20-%20同一水平但是文字座落於左邊及右邊/CSS：同一水平但是文字座落於左邊及右邊/example1.PNG">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/01/JS：傳遞呼叫該函數的物件的方法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/01/CSS - 同一水平但是文字座落於左邊及右邊/"/>
 
 
 
 
 
-  <title>JS：傳遞呼叫該函數的物件的方法 | heHehE</title>
+  <title>CSS：同一水平但是文字座落於左邊及右邊 | heHehE</title>
   
 
 
@@ -253,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/JS：傳遞呼叫該函數的物件的方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/CSS - 同一水平但是文字座落於左邊及右邊/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hohh0115">
@@ -270,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS：傳遞呼叫該函數的物件的方法</h1>
+          <h1 class="post-title" itemprop="name headline">CSS：同一水平但是文字座落於左邊及右邊</h1>
         
 
         <div class="post-meta">
@@ -282,7 +285,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-01T09:55:22+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-01T00:56:44+08:00">
                 2018-06-01
               </time>
             
@@ -342,18 +345,26 @@
       
 
       
-        <p>牽涉到原生JavaScript中this的用法。<br>作為JavaScript語言核心的this的介紹還是看別的地方的，這裡只記錄了用法。<br><a id="more"></a></p>
-<pre><code>&lt;select name=&quot;school_province&quot; onChange=&quot;searchSchool(this)&quot;&gt;...&lt;/select&gt;
-
-&lt;script language=&quot;javascript&quot;&gt;
-    function searchSchool(theProvinceSelect) {
-        console.log(theProvinceSelect.value);
-    }
-&lt;/script&gt;
-</code></pre><p>this是呼叫searchSchool函數的物件，theProvinceSelect則是在函數中代表該物件的參數<br>切記，theProvinceSelect不可以用this替代，如果在函數中也使用this，這個this代表的是window物件!!</p>
-<p>如果只需要value值，可以直接這樣寫：</p>
-<pre><code>&lt;select name=&quot;school_province&quot; onChange=&quot;searchSchoo(this.value)&quot;&gt;...&lt;/select&gt;
-</code></pre><p>那傳過去searchSchool函數的參數就會是value值</p>
+        <p>方法：使用 span 標籤並搭配css style =&gt; style=”float: left” 以及 style=”float: right”</p>
+<a id="more"></a>
+<p>範例1：</p>
+<pre><code>&lt;tr&gt;
+    &lt;td class=&quot;table_td&quot; colspan=&quot;6&quot; scope=&quot;col&quot;&gt;
+        &lt;span style=&quot;float: left&quot;&gt;伍、輔導紀錄照片分享 (非必填)&lt;/span&gt;
+        &lt;span style=&quot;float: right&quot;&gt;&lt;font color=&quot;#FF0000&quot;&gt;*提供jpg、png照片檔案上傳，單張照片不得超過15MB。&lt;/font&gt;&lt;/span&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre><p> 範例1 效果：<br> <img src="CSS：同一水平但是文字座落於左邊及右邊/example1.PNG" alt=""></p>
+<p> 範例2：</p>
+<pre><code> &lt;div style=&quot;margin-top: 20px&quot;&gt;
+    &lt;span style=&quot;float: left&quot;&gt;
+        目前分類: {$class_type_ch} {if $school_province != &apos;&apos;} / {$school_province} / {$school_name} {/if}
+    &lt;/span&gt;
+    &lt;span style=&quot;float: right&quot;&gt;
+    ...
+    &lt;/span&gt;
+&lt;/div&gt;
+</code></pre><p>  範例2 效果：<br> <img src="CSS：同一水平但是文字座落於左邊及右邊/example2.PNG" alt=""></p>
 
       
     </div>
@@ -371,7 +382,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -384,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/01/CSS：同一水平但是文字座落於左邊及右邊/" rel="next" title="CSS：同一水平但是文字座落於左邊及右邊">
-                <i class="fa fa-chevron-left"></i> CSS：同一水平但是文字座落於左邊及右邊
+              <a href="/2018/05/31/網路基礎知識/" rel="next" title="網路基礎知識">
+                <i class="fa fa-chevron-left"></i> 網路基礎知識
               </a>
             
           </div>
@@ -394,8 +405,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/01/JS or CSS：列印頁面/" rel="prev" title="JS or CSS：列印頁面">
-                JS or CSS：列印頁面 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/01/JS - 傳遞呼叫該函數的物件的方法/" rel="prev" title="JS：傳遞呼叫該函數的物件的方法">
+                JS：傳遞呼叫該函數的物件的方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
