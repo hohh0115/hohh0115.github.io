@@ -88,7 +88,7 @@
 <meta property="og:description" content="效果：下圖中，Monthly Base Salary + Allowance 會自動帶出 Total 的值，並加上千位分隔符(group seperator、三位一撇)。(Monthly Base Salary以及Allowance可以輸入帶有千位分隔符或純數字的形式)">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://yoursite.com/2018/06/01/JS%20-%20數值欄位加總計算/example1.PNG">
-<meta property="og:updated_time" content="2018-06-01T04:38:25.850Z">
+<meta property="og:updated_time" content="2018-06-01T04:49:06.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS - 數值欄位加總計算">
 <meta name="twitter:description" content="效果：下圖中，Monthly Base Salary + Allowance 會自動帶出 Total 的值，並加上千位分隔符(group seperator、三位一撇)。(Monthly Base Salary以及Allowance可以輸入帶有千位分隔符或純數字的形式)">
@@ -347,6 +347,50 @@
         <p>效果：<br>下圖中，Monthly Base Salary + Allowance 會自動帶出 Total 的值，並加上千位分隔符(group seperator、三位一撇)。<br>(Monthly Base Salary以及Allowance可以輸入帶有千位分隔符或純數字的形式)</p>
 <p><img src="example1.PNG" alt=""></p>
 <a id="more"></a>
+<p>前端頁面 =&gt; 即時改變加總欄位(Total)中的值，並加上千位分隔符</p>
+<pre><code>&lt;tr&gt;
+    &lt;td&gt;Monthly Base Salary: &lt;/td&gt;
+    &lt;td&gt;
+     NT$ &lt;input type=&quot;text&quot; value=&quot;&quot; style=&quot;width:200px&quot; name=&quot;base_salary&quot; id=&quot;base_salary&quot; onchange=&quot;change_total()&quot; &gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;orig_base_salary&quot; value=&quot;&quot;&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;Allowance: &lt;/td&gt;
+    &lt;td&gt;
+     NT$ &lt;input type=&quot;text&quot; value=&quot;&quot; style=&quot;width:200px&quot; name=&quot;allowance&quot; id=&quot;allowance&quot; onchange=&quot;change_total()&quot; &gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;orig_allowance&quot; value=&quot;&quot;&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;Total: &lt;/td&gt;
+    &lt;td&gt;
+     NT$ &lt;input type=&quot;text&quot; value=&quot;&quot; style=&quot;width:200px&quot; name=&quot;total&quot; id=&quot;total&quot; readonly&gt;    
+        &lt;input type=&quot;hidden&quot; name=&quot;orig_total&quot; value=&quot;&quot;&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;script&gt;
+    /* 加上數字標記 */
+    function commaSeparateNumber(val){
+        while (/(\d+)(\d{3})/.test(val.toString())){
+            val = val.toString().replace(/(\d+)(\d{3})/, &apos;$1&apos;+&apos;,&apos;+&apos;$2&apos;);
+        }
+        return val;
+    }
+    function change_total(){
+        var base_salary = $(&apos;#base_salary&apos;).val().replace(/,/g, &apos;&apos;);  // 若有千位分隔符就replace掉，方便做數字加總
+        var allowance = $(&apos;#allowance&apos;).val().replace(/,/g, &apos;&apos;);
+        var total = base_salary*1 + allowance*1;
+        total = commaSeparateNumber(total);  // 加總結束，把值再加上千位分隔符
+        $(&quot;#total&quot;).val(total);
+    }
+&lt;/script&gt;
+</code></pre><p>儲存時，存於資料庫的是沒有千位分隔符的，單純只有數字(注意欄位型態)。<br>下次取出時，把存在資料庫的值加上千位分隔符。</p>
+<ul>
+<li>送至後端儲存時 =&gt; 把千位分隔符拿掉，存入資料庫中<br>  $_POST[‘base_salary’] = str_replace(‘,’, ‘’, $_POST[‘base_salary’]);<br>  $_POST[‘allowance’] = str_replace(‘,’, ‘’, $_POST[‘allowance’]);<br>  $_POST[‘total’] = str_replace(‘,’, ‘’, $_POST[‘total’]);</li>
+<li>下次取出時，幫數字加上分隔符<br>  $item[‘base_salary’] = number_format($item[‘base_salary’], 0, “.”, “,”);<br>  $item[‘allowance’] = number_format($item[‘allowance’], 0, “.”, “,”);<br>  $item[‘total’] = number_format($item[‘total’], 0, “.”, “,”);</li>
+</ul>
 
       
     </div>
