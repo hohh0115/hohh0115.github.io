@@ -341,7 +341,7 @@
 
       
         
-          <p>jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)。<br>倘若想以JSON格式處理回傳的檔案，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。</p>
+          <p>jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若知道回傳的檔案格式為JSON格式並且如此設定了：<code>dataType: &#39;JSON&#39;,</code>，jQuery會把回傳的檔案轉為JavaScript物件，好讓你操作；但若你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/01/JS-and-PHP-ajax-的dataType參數/#more" rel="contents">
@@ -1453,7 +1453,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
