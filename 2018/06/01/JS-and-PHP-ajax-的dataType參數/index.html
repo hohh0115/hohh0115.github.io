@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,PHP,jQuery," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若指定為JSON格式，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。(坦白說漏掉這一項設定很不應該)">
+<meta name="keywords" content="JavaScript,PHP,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS and PHP: $.ajax()的dataType參數">
 <meta property="og:url" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/index.html">
 <meta property="og:site_name" content="heHehE">
+<meta property="og:description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若指定為JSON格式，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。(坦白說漏掉這一項設定很不應該)">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-06-01T06:13:29.535Z">
+<meta property="og:updated_time" content="2018-06-01T06:33:45.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS and PHP: $.ajax()的dataType參數">
+<meta name="twitter:description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若指定為JSON格式，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。(坦白說漏掉這一項設定很不應該)">
 
 
 
@@ -289,6 +293,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web功能/" itemprop="url" rel="index">
+                    <span itemprop="name">Web功能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -316,7 +342,31 @@
       
 
       
-        
+        <p>jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若指定為JSON格式，但你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換格式。(坦白說漏掉這一項設定很不應該)</p>
+<a id="more"></a>
+<p><strong>正常情況下：</strong></p>
+<pre><code>// 前端發起ajax請求，請求方式為POST方式
+function get_something_by_ajax() {
+    ...
+    $.ajax({
+        url: get_my_ajax_request,
+        type: &apos;POST&apos;,
+        dataType: &apos;JSON&apos;,
+        data: some_data,
+
+        success: function(response_data) {
+            ...
+        }
+    });
+}
+
+//後端php接收請求，處理資料後回傳給發請ajax請求的函式
+public function get_my_ajax_request() {
+    ...
+    echo json_encode($response_data);
+}
+</code></pre><p>若選擇把</p>
+
       
     </div>
     
@@ -330,6 +380,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+        </div>
       
 
       
@@ -438,7 +498,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
