@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="效果：列印功能。欲列印的需要載入才可以列印。 1. 按下按鈕啟動可列印的部分被列印(JS)參考資料：https://stackoverflow.com/questions/16894683/how-to-print-html-content-on-click-of-a-button-but-not-the-page 可列印的部分會出現在頁面中，按下按鈕指定可列印的部分被列印。 &amp;lt;div id">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello">
-<meta property="og:url" content="http://yoursite.com/2018/05/30/Hello/index.html">
+<meta property="og:title" content="JS or CSS：列印頁面">
+<meta property="og:url" content="http://yoursite.com/2018/06/01/JS or CSS：列印頁面/index.html">
 <meta property="og:site_name" content="heHehE">
+<meta property="og:description" content="效果：列印功能。欲列印的需要載入才可以列印。 1. 按下按鈕啟動可列印的部分被列印(JS)參考資料：https://stackoverflow.com/questions/16894683/how-to-print-html-content-on-click-of-a-button-but-not-the-page 可列印的部分會出現在頁面中，按下按鈕指定可列印的部分被列印。 &amp;lt;div id">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-06-01T01:18:18.181Z">
+<meta property="og:updated_time" content="2018-06-01T02:23:52.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello">
+<meta name="twitter:title" content="JS or CSS：列印頁面">
+<meta name="twitter:description" content="效果：列印功能。欲列印的需要載入才可以列印。 1. 按下按鈕啟動可列印的部分被列印(JS)參考資料：https://stackoverflow.com/questions/16894683/how-to-print-html-content-on-click-of-a-button-but-not-the-page 可列印的部分會出現在頁面中，按下按鈕指定可列印的部分被列印。 &amp;lt;div id">
 
 
 
@@ -116,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/30/Hello/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/01/JS or CSS：列印頁面/"/>
 
 
 
 
 
-  <title>Hello | heHehE</title>
+  <title>JS or CSS：列印頁面 | heHehE</title>
   
 
 
@@ -249,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/Hello/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/JS or CSS：列印頁面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hohh0115">
@@ -266,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello</h1>
+          <h1 class="post-title" itemprop="name headline">JS or CSS：列印頁面</h1>
         
 
         <div class="post-meta">
@@ -278,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T23:27:24+08:00">
-                2018-05-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-01T10:02:32+08:00">
+                2018-06-01
               </time>
             
 
@@ -316,7 +319,39 @@
       
 
       
-        
+        <p>效果：列印功能。<br>欲列印的需要載入才可以列印。</p>
+<h2 id="1-按下按鈕啟動可列印的部分被列印-JS"><a href="#1-按下按鈕啟動可列印的部分被列印-JS" class="headerlink" title="1. 按下按鈕啟動可列印的部分被列印(JS)"></a>1. 按下按鈕啟動可列印的部分被列印(JS)</h2><p>參考資料：<a href="https://stackoverflow.com/questions/16894683/how-to-print-html-content-on-click-of-a-button-but-not-the-page" target="_blank" rel="noopener">https://stackoverflow.com/questions/16894683/how-to-print-html-content-on-click-of-a-button-but-not-the-page</a></p>
+<p>可列印的部分會出現在頁面中，按下按鈕指定可列印的部分被列印。</p>
+<pre><code>&lt;div id=&quot;printableArea&quot;&gt;
+      &lt;h1&gt;Print me&lt;/h1&gt;
+&lt;/div&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;printDiv(&apos;printableArea&apos;)&quot; value=&quot;print a div!&quot; /&gt;
+
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
+</code></pre><p>請注意這個方法在某些環境下似乎沒有辦法成功運作，詳見第二個方法的參考資料連結的回答！</p>
+<h2 id="2-只使用CSS"><a href="#2-只使用CSS" class="headerlink" title="2. 只使用CSS"></a>2. 只使用CSS</h2><p>參考資料：<a href="https://stackoverflow.com/questions/468881/print-div-id-printarea-div-only?noredirect=1&amp;lq=1" target="_blank" rel="noopener">https://stackoverflow.com/questions/468881/print-div-id-printarea-div-only?noredirect=1&amp;lq=1</a></p>
+<p>這個我就沒使用過了，但似乎是最乾淨的解決辦法，應該是使用css把可以列印的部分先在頁面中藏起來，避免被使用者看到。</p>
+<pre><code>@media print {
+    body * {
+        visibility: hidden;
+    }
+    #section-to-print, #section-to-print * {
+        visibility: visible;
+    }
+    #section-to-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+</code></pre><h2 id="3"><a href="#3" class="headerlink" title="3. "></a>3. <body onload="print()"></body></h2><p>這其實是JavaScript中Window物件的print()方法：<a href="https://www.w3schools.com/jsref/met_win_print.asp" target="_blank" rel="noopener">https://www.w3schools.com/jsref/met_win_print.asp</a><br>我是用在於項目清單列表上的列印按鈕，按下列印按鈕跳轉該項目的詳細資料就會自動跳出列印提示。</p>
+
       
     </div>
     
@@ -340,15 +375,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/06/01/JS：傳遞呼叫該函數的物件的方法/" rel="next" title="JS：傳遞呼叫該函數的物件的方法">
+                <i class="fa fa-chevron-left"></i> JS：傳遞呼叫該函數的物件的方法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/31/網路基礎知識/" rel="prev" title="網路基礎知識">
-                網路基礎知識 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -400,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -443,6 +487,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-按下按鈕啟動可列印的部分被列印-JS"><span class="nav-number">1.</span> <span class="nav-text">1. 按下按鈕啟動可列印的部分被列印(JS)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-只使用CSS"><span class="nav-number">2.</span> <span class="nav-text">2. 只使用CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3"><span class="nav-number">3.</span> <span class="nav-text">3. </span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
