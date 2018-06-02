@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript,PHP,jQuery,JSON," />
+  <meta name="keywords" content="JavaScript,jQuery,PHP,JSON," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若知道回傳的檔案格式為JSON格式並且如此設定了：dataType: &amp;#39;JSON&amp;#39;,，jQuery會把回傳的檔案轉為JavaScript物件，好讓你操作；但若你漏掉這一項設定，其實可">
-<meta name="keywords" content="JavaScript,PHP,jQuery,JSON">
+<meta name="keywords" content="JavaScript,jQuery,PHP,JSON">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS and PHP: $.ajax()的dataType參數">
 <meta property="og:url" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/index.html">
@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/2.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/3.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/06/01/JS-and-PHP-ajax-的dataType參數/4.PNG">
-<meta property="og:updated_time" content="2018-06-01T08:10:24.282Z">
+<meta property="og:updated_time" content="2018-06-02T00:17:48.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS and PHP: $.ajax()的dataType參數">
 <meta name="twitter:description" content="jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若知道回傳的檔案格式為JSON格式並且如此設定了：dataType: &amp;#39;JSON&amp;#39;,，jQuery會把回傳的檔案轉為JavaScript物件，好讓你操作；但若你漏掉這一項設定，其實可">
@@ -350,30 +350,9 @@
         <p>jQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若知道回傳的檔案格式為JSON格式並且如此設定了：<code>dataType: &#39;JSON&#39;,</code>，jQuery會把回傳的檔案轉為JavaScript物件，好讓你操作；但若你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換。</p>
 <a id="more"></a>
 <p><strong>正常情況下：</strong></p>
-<pre><code>// 前端發起ajax請求，請求方式為POST方式
-function get_something_by_ajax() {
-    ...
-    $.ajax({
-        url: get_my_ajax_request,
-        type: &apos;POST&apos;,
-        dataType: &apos;JSON&apos;,
-        data: some_data,
-
-        success: function(response_data) {
-            console.log(response_data)
-            console.log(typeof(response_data))
-            console.log(Object.prototype.toString.call(response_data))
-            ...
-        }
-    });
-}
-
-//後端php接收請求，處理資料後回傳給發請ajax請求的函式
-public function get_my_ajax_request() {
-    $response_data = array(&apos;1&apos;=&gt;&apos;王小明&apos;);
-    echo json_encode($response_data, JSON_UNESCAPED_UNICODE);
-}
-</code></pre><p><strong>要注意到，當瀏覽器和伺服器互相傳遞資料時，資料的格式只能是文字串，因此JSON格式是非常適合拿來當作交換資料的格式</strong><br>(<a href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank" rel="noopener">https://www.w3schools.com/js/js_json_intro.asp</a> =&gt; “When exchanging data between a browser and a server, the data can only be text.”)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前端發起ajax請求，請求方式為POST方式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_something_by_ajax</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	...</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: get_my_ajax_request,</span><br><span class="line">        type: <span class="string">'POST'</span>,</span><br><span class="line">        dataType: <span class="string">'JSON'</span>,</span><br><span class="line">        data: some_data,</span><br><span class="line"></span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">response_data</span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(response_data)</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="keyword">typeof</span>(response_data))</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(response_data))</span><br><span class="line">			...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//後端php接收請求，處理資料後回傳給發請ajax請求的函式<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get_my_ajax_request</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	$response_data = <span class="keyword">array</span>(<span class="string">'1'</span>=&gt;<span class="string">'王小明'</span>);</span><br><span class="line">	<span class="keyword">echo</span> json_encode($response_data, JSON_UNESCAPED_UNICODE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>要注意到，當瀏覽器和伺服器互相傳遞資料時，資料的格式只能是文字串，因此JSON格式是非常適合拿來當作交換資料的格式</strong><br>(<a href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank" rel="noopener">https://www.w3schools.com/js/js_json_intro.asp</a> =&gt; “When exchanging data between a browser and a server, the data can only be text.”)</p>
 <hr>
 <p><code>json_encode($response_data)</code>使後端回傳了一個JSON字串，且由於<code>dataType: &#39;JSON&#39;,</code>的關係，jQuery預期收到一個JSON字串，並會準備解析成JavaScript物件，所以<code>console.log(response_data)</code>顯示的結果會是這樣：<br><img src="1.PNG" alt="">因此我們可以針對這個物件做其中值「王小明」的存取。</p>
 <p>若把 <code>dataType: &#39;JSON&#39;,</code> 註解掉，jQuery不會解析成JavaScript物件，而是直接接收字串，則 <code>console.log(response_data)</code> 出來的內容則會變成這樣：<br><img src="2.PNG" alt="">這就只是一個字串，若我們只想要值「王小明」是沒辦法的。(如果你只想要字串就沒差)<br>此時可以在前端中對response_data對處理 =&gt; jQuery.parseJSON(response_data)，所以<code>console.log(jQuery.parseJSON(response_data))</code>結果會顯示：<br><img src="3.PNG" alt="">這也就是jQuery.parseJSON()的功能：將JSON字符串轉為與之對應的JavaScript物件</p>
@@ -400,9 +379,9 @@ public function get_my_ajax_request() {
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
-          
             <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
             <a href="/tags/JSON/" rel="tag"># JSON</a>
           
