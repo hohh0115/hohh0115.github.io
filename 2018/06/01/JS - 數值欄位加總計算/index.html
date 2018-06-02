@@ -88,7 +88,7 @@
 <meta property="og:description" content="效果：下圖中，Monthly Base Salary + Allowance 會自動帶出 Total 的值，並加上千位分隔符(group seperator、三位一撇)。(Monthly Base Salary以及Allowance可以輸入帶有千位分隔符或純數字的形式)">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://yoursite.com/2018/06/01/JS%20-%20數值欄位加總計算/example1.PNG">
-<meta property="og:updated_time" content="2018-06-01T05:45:35.077Z">
+<meta property="og:updated_time" content="2018-06-02T00:36:42.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS - 數值欄位加總計算">
 <meta name="twitter:description" content="效果：下圖中，Monthly Base Salary + Allowance 會自動帶出 Total 的值，並加上千位分隔符(group seperator、三位一撇)。(Monthly Base Salary以及Allowance可以輸入帶有千位分隔符或純數字的形式)">
@@ -347,59 +347,17 @@
         <p>效果：<br>下圖中，Monthly Base Salary + Allowance 會自動帶出 Total 的值，並加上千位分隔符(group seperator、三位一撇)。<br>(Monthly Base Salary以及Allowance可以輸入帶有千位分隔符或純數字的形式)</p>
 <p><img src="example1.PNG" alt=""></p>
 <a id="more"></a>
-<p>前端頁面 =&gt; 即時改變加總欄位(Total)中的值，並加上千位分隔符</p>
-<pre><code>&lt;tr&gt;
-    &lt;td&gt;Monthly Base Salary: &lt;/td&gt;
-    &lt;td&gt;
-     NT$ &lt;input type=&quot;text&quot; value=&quot;&quot; style=&quot;width:200px&quot; name=&quot;base_salary&quot; id=&quot;base_salary&quot; onchange=&quot;change_total()&quot; &gt;
-        &lt;input type=&quot;hidden&quot; name=&quot;orig_base_salary&quot; value=&quot;&quot;&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Allowance: &lt;/td&gt;
-    &lt;td&gt;
-     NT$ &lt;input type=&quot;text&quot; value=&quot;&quot; style=&quot;width:200px&quot; name=&quot;allowance&quot; id=&quot;allowance&quot; onchange=&quot;change_total()&quot; &gt;
-        &lt;input type=&quot;hidden&quot; name=&quot;orig_allowance&quot; value=&quot;&quot;&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Total: &lt;/td&gt;
-    &lt;td&gt;
-     NT$ &lt;input type=&quot;text&quot; value=&quot;&quot; style=&quot;width:200px&quot; name=&quot;total&quot; id=&quot;total&quot; readonly&gt;    
-        &lt;input type=&quot;hidden&quot; name=&quot;orig_total&quot; value=&quot;&quot;&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
+<p>前端頁面 =&gt; 即時改變加總欄位(Total)中的值，並加上千位分隔符<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>Monthly Base Salary: <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">     NT$ <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"width:200px"</span> <span class="attr">name</span>=<span class="string">"base_salary"</span> <span class="attr">id</span>=<span class="string">"base_salary"</span> <span class="attr">onchange</span>=<span class="string">"change_total()"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"orig_base_salary"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>Allowance: <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">     NT$ <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"width:200px"</span> <span class="attr">name</span>=<span class="string">"allowance"</span> <span class="attr">id</span>=<span class="string">"allowance"</span> <span class="attr">onchange</span>=<span class="string">"change_total()"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"orig_allowance"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>Total: <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">     NT$ <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"width:200px"</span> <span class="attr">name</span>=<span class="string">"total"</span> <span class="attr">id</span>=<span class="string">"total"</span> <span class="attr">readonly</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"orig_total"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">/* 加上數字標記 */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">commaSeparateNumber</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="regexp">/(\d+)(\d&#123;3&#125;)/</span>.test(val.toString()))&#123;</span><br><span class="line">            val = val.toString().replace(<span class="regexp">/(\d+)(\d&#123;3&#125;)/</span>, <span class="string">'$1'</span>+<span class="string">','</span>+<span class="string">'$2'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">change_total</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> base_salary = $(<span class="string">'#base_salary'</span>).val().replace(<span class="regexp">/,/g</span>, <span class="string">''</span>);  <span class="comment">// 若有千位分隔符就replace掉，方便做數字加總</span></span><br><span class="line">        <span class="keyword">var</span> allowance = $(<span class="string">'#allowance'</span>).val().replace(<span class="regexp">/,/g</span>, <span class="string">''</span>);</span><br><span class="line">        <span class="keyword">var</span> total = base_salary*<span class="number">1</span> + allowance*<span class="number">1</span>;</span><br><span class="line">        total = commaSeparateNumber(total);  <span class="comment">// 加總結束，把值再加上千位分隔符</span></span><br><span class="line">        $(<span class="string">"#total"</span>).val(total);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>儲存時，存於資料庫的是沒有千位分隔符的，單純只有數字(注意欄位型態)。<br>下次取出時，把存在資料庫的值加上千位分隔符。</p>
+<ul>
+<li><p>送至後端儲存時 =&gt; 把千位分隔符拿掉，存入資料庫中：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$_POST[<span class="string">'base_salary'</span>] = str_replace(<span class="string">','</span>, <span class="string">''</span>, $_POST[<span class="string">'base_salary'</span>]);</span><br><span class="line">$_POST[<span class="string">'allowance'</span>] = str_replace(<span class="string">','</span>, <span class="string">''</span>, $_POST[<span class="string">'allowance'</span>]);</span><br><span class="line">$_POST[<span class="string">'total'</span>] = str_replace(<span class="string">','</span>, <span class="string">''</span>, $_POST[<span class="string">'total'</span>]);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下次取出時，幫數字加上分隔符：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$item[<span class="string">'base_salary'</span>] = number_format($item[<span class="string">'base_salary'</span>], <span class="number">0</span>, <span class="string">"."</span>, <span class="string">","</span>);</span><br><span class="line">$item[<span class="string">'allowance'</span>] = number_format($item[<span class="string">'allowance'</span>], <span class="number">0</span>, <span class="string">"."</span>, <span class="string">","</span>);</span><br><span class="line">$item[<span class="string">'total'</span>] = number_format($item[<span class="string">'total'</span>], <span class="number">0</span>, <span class="string">"."</span>, <span class="string">","</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
 
-&lt;script&gt;
-    /* 加上數字標記 */
-    function commaSeparateNumber(val){
-        while (/(\d+)(\d{3})/.test(val.toString())){
-            val = val.toString().replace(/(\d+)(\d{3})/, &apos;$1&apos;+&apos;,&apos;+&apos;$2&apos;);
-        }
-        return val;
-    }
-    function change_total(){
-        var base_salary = $(&apos;#base_salary&apos;).val().replace(/,/g, &apos;&apos;);  // 若有千位分隔符就replace掉，方便做數字加總
-        var allowance = $(&apos;#allowance&apos;).val().replace(/,/g, &apos;&apos;);
-        var total = base_salary*1 + allowance*1;
-        total = commaSeparateNumber(total);  // 加總結束，把值再加上千位分隔符
-        $(&quot;#total&quot;).val(total);
-    }
-&lt;/script&gt;
-</code></pre><p>儲存時，存於資料庫的是沒有千位分隔符的，單純只有數字(注意欄位型態)。<br>下次取出時，把存在資料庫的值加上千位分隔符。</p>
-<blockquote>
-<p>送至後端儲存時 =&gt; 把千位分隔符拿掉，存入資料庫中：</p>
-</blockquote>
-<pre><code>$_POST[&apos;base_salary&apos;] = str_replace(&apos;,&apos;, &apos;&apos;, $_POST[&apos;base_salary&apos;]);
-$_POST[&apos;allowance&apos;] = str_replace(&apos;,&apos;, &apos;&apos;, $_POST[&apos;allowance&apos;]);
-$_POST[&apos;total&apos;] = str_replace(&apos;,&apos;, &apos;&apos;, $_POST[&apos;total&apos;]);
-</code></pre><blockquote>
-<p>下次取出時，幫數字加上分隔符：</p>
-</blockquote>
-<pre><code>$item[&apos;base_salary&apos;] = number_format($item[&apos;base_salary&apos;], 0, &quot;.&quot;, &quot;,&quot;);
-$item[&apos;allowance&apos;] = number_format($item[&apos;allowance&apos;], 0, &quot;.&quot;, &quot;,&quot;);
-$item[&apos;total&apos;] = number_format($item[&apos;total&apos;], 0, &quot;.&quot;, &quot;,&quot;);
-</code></pre>
       
     </div>
     
