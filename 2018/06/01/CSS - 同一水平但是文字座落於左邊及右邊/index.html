@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://yoursite.com/2018/06/01/CSS%20-%20同一水平但是文字座落於左邊及右邊/example1.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/06/01/CSS%20-%20同一水平但是文字座落於左邊及右邊/example2.PNG">
-<meta property="og:updated_time" content="2018-06-01T04:36:32.750Z">
+<meta property="og:updated_time" content="2018-06-02T00:43:44.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS - 同一水平但是文字座落於左邊及右邊">
 <meta name="twitter:description" content="方法：使用 span 標籤並搭配css style =&amp;gt; style=”float: left” 以及 style=”float: right”">
@@ -347,24 +347,10 @@
       
         <p>方法：使用 span 標籤並搭配css style =&gt; style=”float: left” 以及 style=”float: right”</p>
 <a id="more"></a>
-<p>範例1：</p>
-<pre><code>&lt;tr&gt;
-    &lt;td class=&quot;table_td&quot; colspan=&quot;6&quot; scope=&quot;col&quot;&gt;
-        &lt;span style=&quot;float: left&quot;&gt;伍、輔導紀錄照片分享 (非必填)&lt;/span&gt;
-        &lt;span style=&quot;float: right&quot;&gt;&lt;font color=&quot;#FF0000&quot;&gt;*提供jpg、png照片檔案上傳，單張照片不得超過15MB。&lt;/font&gt;&lt;/span&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-</code></pre><p> 範例1 效果：<br> <img src="example1.PNG" alt=""></p>
-<p> 範例2：</p>
-<pre><code> &lt;div style=&quot;margin-top: 20px&quot;&gt;
-    &lt;span style=&quot;float: left&quot;&gt;
-        目前分類: {$class_type_ch} {if $school_province != &apos;&apos;} / {$school_province} / {$school_name} {/if}
-    &lt;/span&gt;
-    &lt;span style=&quot;float: right&quot;&gt;
-    ...
-    &lt;/span&gt;
-&lt;/div&gt;
-</code></pre><p>  範例2 效果：<br> <img src="example2.PNG" alt=""></p>
+<p>範例1：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"table_td"</span> <span class="attr">colspan</span>=<span class="string">"6"</span> <span class="attr">scope</span>=<span class="string">"col"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"float: left"</span>&gt;</span>伍、輔導紀錄照片分享 (非必填)<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"float: right"</span>&gt;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"#FF0000"</span>&gt;</span>*提供jpg、png照片檔案上傳，單張照片不得超過15MB。<span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p> 範例1 效果：<br> <img src="example1.PNG" alt=""></p>
+<p> 範例2：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-top: 20px"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"float: left"</span>&gt;</span></span><br><span class="line">        目前分類: &#123;$class_type_ch&#125; &#123;if $school_province != ''&#125; / &#123;$school_province&#125; / &#123;$school_name&#125; &#123;/if&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"float: right"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>  範例2 效果：<br> <img src="example2.PNG" alt=""></p>
 
       
     </div>
