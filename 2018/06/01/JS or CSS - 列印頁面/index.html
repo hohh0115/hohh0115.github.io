@@ -340,7 +340,33 @@
 
       
       
-
+      	<span id="test1"></span>
+	<script>
+	document.getElementById('test1').textContent = navigator.userAgent
+    var onAppBrowser = navigator.userAgent.match(/FBA[NV]|Instagram/)
+    var link = new URL(location.href)
+    console.log(onAppBrowser)
+      if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
+      var utm = []
+      link.searchParams.forEach((value, key) => {
+        if (key.startsWith('utm_')) {
+          utm.push(`${key}=${encodeURIComponent(value)}`)
+        }
+      })
+      sessionStorage.setItem('utm', utm.join('&'))
+    } else if (
+      onAppBrowser &&
+      !link.search.match(/utm_/) &&
+      sessionStorage.length > 0 &&
+      history.replaceState
+    ) {
+      var utm = sessionStorage.getItem('utm')
+      var connectSign = link.search.length ? '&' : '?'
+ 	console.log(`${link.pathname}${link.search}${connectSign}${utm}`)
+      history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
+    }
+		console.log(sessionStorage)
+	</script>
       
         <p>效果：列印功能。<br>欲列印的部分都是需要載入之後才可以列印。</p>
 <a id="more"></a>
