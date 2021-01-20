@@ -345,8 +345,10 @@
 
       
       
-
-      
+	<script>
+		document.getElementById('test1').textContent = navigator.userAgent
+	</script>
+      	<span id="test1"></span>
         <p>DDDDDDjQuery ajax() Method裡面的dataType參數的用意為指定伺服器回傳的預期檔案格式(The data type expected of the server response.)，倘若知道回傳的檔案格式為JSON格式並且如此設定了：<code>dataType: &#39;JSON&#39;,</code>，jQuery會把回傳的檔案轉為JavaScript物件，好讓你操作；但若你漏掉這一項設定，其實可以在接收到檔案後使用jQuery.parseJSON()強制轉換。</p>
 <a id="more"></a>
 <p><strong>正常情況下：</strong></p>
