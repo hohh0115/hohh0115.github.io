@@ -340,14 +340,22 @@
 
       
       
-      	<span id="test1"></span>
+     	<span id="test1"></span>
+	    <br>
 	    <span id="test2"></span>
+	    <br>
+	    <span id="log1"></span>
+	    <br>
+	    <span id="log2"></span>
+	   	    <br>
+	    <span id="log3"></span>
 	<script>
 	document.getElementById('test1').textContent = navigator.userAgent
-		document.getElementById('test2').textContent = JSON.stringify(sessionStorage)
+		document.getElementById('log3').textContent = JSON.stringify(sessionStorage)
     var onAppBrowser = navigator.userAgent.match(/FBA[NV]|Instagram/)
     var link = new URL(location.href)
       if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
+	      document.getElementById('log1').textContent = 'LOG1'
       var utm = []
       link.searchParams.forEach((value, key) => {
         if (key.startsWith('utm_')) {
@@ -361,11 +369,13 @@
       sessionStorage.length > 0 &&
       history.replaceState
     ) {
+	    document.getElementById('LOG2').textContent = 'LOG2'
       var utm = sessionStorage.getItem('utm')
       var connectSign = link.search.length ? '&' : '?'
  	console.log(`${link.pathname}${link.search}${connectSign}${utm}`)
       history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
     }
+	document.getElementById('test1').textContent = JSON.stringify(sessionStorage)
 	</script>
       
         <p>效果：列印功能。<br>欲列印的部分都是需要載入之後才可以列印。</p>
