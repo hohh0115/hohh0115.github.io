@@ -346,12 +346,21 @@
       
       
       	<span id="test1"></span>
+	    <br>
+	    <span id="test2"></span>
+	    <br>
+	    <span id="log1"></span>
+	    <br>
+	    <span id="log2"></span>
+	   	    <br>
+	    <span id="log3"></span>
 	<script>
 	document.getElementById('test1').textContent = navigator.userAgent
+		document.getElementById('log3').textContent = JSON.stringify(sessionStorage)
     var onAppBrowser = navigator.userAgent.match(/FBA[NV]|Instagram/)
     var link = new URL(location.href)
-    console.log(onAppBrowser)
       if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
+	      document.getElementById('log1').textContent = 'LOG1'
       var utm = []
       link.searchParams.forEach((value, key) => {
         if (key.startsWith('utm_')) {
@@ -365,12 +374,13 @@
       sessionStorage.length > 0 &&
       history.replaceState
     ) {
+	    document.getElementById('LOG2').textContent = 'LOG2'
       var utm = sessionStorage.getItem('utm')
       var connectSign = link.search.length ? '&' : '?'
  	console.log(`${link.pathname}${link.search}${connectSign}${utm}`)
       history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
     }
-		console.log(sessionStorage)
+	document.getElementById('test1').textContent = JSON.stringify(sessionStorage)
 	</script>
 	    
 	<a href="https://hohh0115.github.io./2018/06/01/JS%20or%20CSS%20-%20%E5%88%97%E5%8D%B0%E9%A0%81%E9%9D%A2/">GOGOGO</a>
