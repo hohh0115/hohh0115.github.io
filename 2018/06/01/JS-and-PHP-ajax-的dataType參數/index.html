@@ -345,38 +345,46 @@
 
       
       
+<span>UserAgent:</span>
+<br>
 <span id="userAgent"></span>
 <br>
-<span id="storageBefore"></span>
+<span>sessionStorageBefore</span>
 <br>
-<span id="onAppBrowser"></span>
-<p>==================1</p>
+<span id="sessionStorageBefore"></span>
 <br>
-<span id="searchParams"></span>
+<span>localStorageBefore</span>
 <br>
-<span id="storageBefore"></span>
-<br>
-<p>==================2</p>
-<span id="logic1"></span>
-<br>
-<span id="logic2"></span>
-<br>
-<span id="storageAfter"></span>
-<br>
-<p>==================3</p>
 <span id="localStorageBefore"></span>
 <br>
+<span>searchParams</span>>
+<span id="searchParams"></span>
+<p>==================1</p>
+<span>LOGIC1</span>
+<br>
+<span id="LOGIC1"></span>
+<br>
+<span>LOGIC2</span>
+<br>
+<span id="LOGIC2"></span>
+<p>==================2</p>
+<span>sessionStorageAfter</span>
+<br>
+<span id="sessionStorageAfter"></span>
+<br>
+<span>localStorageAfter</span>
+<br>
 <span id="localStorageAfter"></span>
+<br>
 	<script>
-	document.getElementById('userAgent').textContent = navigator.userAgent
-	document.getElementById('storageBefore').textContent = JSON.stringify(sessionStorage)
-  document.getElementById('localStorageBefore').textContent = JSON.stringify(localStorage)
   var onAppBrowser = navigator.userAgent.match(/FBA[NV]|Instagram/)
-  document.getElementById('onAppBrowser').textContent = JSON.stringify(sessionStorage)
   var link = new URL(location.href)
-    document.getElementById('searchParams').textContent = JSON.stringify(sessionStorage)
+	document.getElementById('userAgent').textContent = navigator.userAgent
+	document.getElementById('sessionStorageBefore').textContent = JSON.stringify(sessionStorage)
+  document.getElementById('localStorageBefore').textContent = JSON.stringify(localStorage)
+  document.getElementById('searchParams').textContent = link.searchParams.get('utm_source')
       if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
-	      document.getElementById('logic1').textContent = 'logic1'
+	      document.getElementById('LOGIC1').textContent = 'LOGIC1Pass'
       var utm = []
       link.searchParams.forEach((value, key) => {
         if (key.startsWith('utm_')) {
@@ -391,15 +399,14 @@
       (sessionStorage.length > 0 || localStorage.length > 0) &&
       history.replaceState
     ) {
-	    document.getElementById('logic2').textContent = 'logic2'
+	    document.getElementById('LOGIC2').textContent = 'LOGIC2Pass'
       // var utm = sessionStorage.getItem('utm')
       var utm = sessionStorage.length > 0 ? sessionStorage.getItem('utm') : localStorage.getItem('utm')
       var connectSign = link.search.length ? '&' : '?'
- 	console.log(`${link.pathname}${link.search}${connectSign}${utm}`)
       history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
     }
-	document.getElementById('storageAfter').textContent = JSON.stringify(sessionStorage)
-  document.getElementById('localStorageAfter').textContent = JSON.stringify(localStorageAfter)
+	document.getElementById('sessionStorageAfter').textContent = JSON.stringify(sessionStorage)
+  document.getElementById('localStorageAfter').textContent = JSON.stringify(localStorage)
 	</script>
 	    
 	<a href="https://hohh0115.github.io./2018/06/01/JS%20or%20CSS%20-%20%E5%88%97%E5%8D%B0%E9%A0%81%E9%9D%A2/">GOGOGO</a>
