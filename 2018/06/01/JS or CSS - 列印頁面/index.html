@@ -339,48 +339,30 @@
     <div class="post-body" itemprop="articleBody">
 
 
-<span>UserAgent：</span>
-<br>
-<span id="userAgent"></span>
-<br>
-<span>sessionStorageBefore：</span>
-<br>
-<span id="sessionStorageBefore"></span>
-<br>
-<span>localStorageBefore：</span>
-<br>
-<span id="localStorageBefore"></span>
-<br>
-<span id="cookieBefore"></span>
-<br>
-<span>searchParams：</span>
-<br>
-<span id="searchParams"></span>
-<span>==================1</span>
-<br>
-<span>LOGIC1：</span>
-<br>
-<span id="LOGIC1"></span>
-<br>
-<span>LOGIC2：</span>
-<br>
-<span id="LOGIC2"></span>
-<br>
-<span>LOGIC2New</span>
-<br>
-<span id="LOGIC2New"></span>
-<span>==================2</span>
-<br>
-<span>sessionStorageAfter：</span>
-<br>
-<span id="sessionStorageAfter"></span>
-<br>
-<span>localStorageAfter：</span>
-<br>
-<span id="localStorageAfter"></span>
-<br>
-<span id="cookieAfter"></span>
-<br>
+<p>UserAgent：</p>
+<p id="userAgent"></p>
+<p>sessionStorageBefore：</p>
+<p id="sessionStorageBefore"></p>
+<p>localStorageBefore：</p>
+<p id="localStorageBefore"></p>
+<p>cookieBefore：</p>
+<p id="cookieBefore"></p>
+<p>utm_source：</p>
+<p id="utm_source"></p>
+<p>==================1</p>
+<p>LOGIC1：</p>
+<p id="LOGIC1"></p>
+<p>LOGIC2：</p>
+<p id="LOGIC2"></p>
+<p>LOGIC2New</p>
+<p id="LOGIC2New"></p>
+<p>==================2</p>
+<p>sessionStorageAfter：</p>
+<p id="sessionStorageAfter"></p>
+<p>localStorageAfter：</p>
+<p id="localStorageAfter"></p>
+<p>cookieAfter：</p>
+<p id="cookieAfter"></p>
 <br>
 <a href="https://hohh0115.github.io./2018/06/01/JS%20or%20CSS%20-%20%E5%88%97%E5%8D%B0%E9%A0%81%E9%9D%A2/">Normal</a>
 <br>
@@ -395,7 +377,7 @@
 	document.getElementById('sessionStorageBefore').textContent = JSON.stringify(sessionStorage)
   document.getElementById('localStorageBefore').textContent = JSON.stringify(localStorage)
   document.getElementById('cookieBefore').textContent = document.cookie
-  document.getElementById('searchParams').textContent = link.searchParams.get('utm_source')
+  document.getElementById('utm_source').textContent = link.searchParams.get('utm_source')
       if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
 	      document.getElementById('LOGIC1').textContent = 'LOGIC1Pass'
       var utm = []
@@ -411,7 +393,7 @@
       var elem = document.querySelector('a[href*="2018/05/30/Hello"]')
       var orginLink = new URL(elem.href)
       var connectSign = orginLink.search.length ? '&' : '?'
-      elem.href = `${elem.href}${link.search}${connectSign}${utm}`
+      elem.href = `${elem.href}${link.search}${connectSign}${utm.join('&')}`
 
     } else if (
       onAppBrowser &&
@@ -426,14 +408,13 @@
       history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
       document.getElementById('LOGIC2New').textContent = `${link.pathname}${link.search}${connectSign}${utm}`
     }
-    document.cookie = "username=John Doe";
+  document.cookie = "username=John Doe";
 	document.getElementById('sessionStorageAfter').textContent = JSON.stringify(sessionStorage)
   document.getElementById('localStorageAfter').textContent = JSON.stringify(localStorage)
   document.getElementById('cookieAfter').textContent = document.cookie
 	</script>
-	 
-  <br>
-  <br>	    
+
+
 	    
 	    
 	    
