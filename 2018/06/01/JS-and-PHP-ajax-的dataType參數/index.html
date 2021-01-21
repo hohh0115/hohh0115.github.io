@@ -345,41 +345,54 @@
 
       
       
-<span>UserAgent:</span>
+<span>UserAgent：</span>
 <br>
 <span id="userAgent"></span>
 <br>
-<span>sessionStorageBefore</span>
+<span>sessionStorageBefore：</span>
 <br>
 <span id="sessionStorageBefore"></span>
 <br>
-<span>localStorageBefore</span>
+<span>localStorageBefore：</span>
 <br>
 <span id="localStorageBefore"></span>
 <br>
 <span id="cookieBefore"></span>
 <br>
-<span>searchParams</span>
+<span>searchParams：</span>
 <br>
 <span id="searchParams"></span>
 <span>==================1</span>
-<span>LOGIC1</span>
+<br>
+<span>LOGIC1：</span>
 <br>
 <span id="LOGIC1"></span>
 <br>
-<span>LOGIC2</span>
+<span>LOGIC2：</span>
 <br>
 <span id="LOGIC2"></span>
+<br>
+<span>LOGIC2New</span>
+<br>
+<span id="LOGIC2New"></span>
 <span>==================2</span>
-<span>sessionStorageAfter</span>
+<br>
+<span>sessionStorageAfter：</span>
 <br>
 <span id="sessionStorageAfter"></span>
 <br>
-<span>localStorageAfter</span>
+<span>localStorageAfter：</span>
 <br>
 <span id="localStorageAfter"></span>
 <br>
 <span id="cookieAfter"></span>
+<br>
+<br>
+<a href="https://hohh0115.github.io./2018/06/01/JS%20or%20CSS%20-%20%E5%88%97%E5%8D%B0%E9%A0%81%E9%9D%A2/">Normal</a>
+<br>
+<br>
+<a href="https://hohh0115.github.io/2018/05/30/Hello/">add UTM</a>
+<br>
 <br>
 	<script>
   var onAppBrowser = navigator.userAgent.match(/FBA[NV]|Instagram/)
@@ -399,6 +412,13 @@
       })
       sessionStorage.setItem('utm', utm.join('&'))
       localStorage.setItem('utm', utm.join('&'))
+
+      // just add utm to link
+      var elem = document.querySelector('a[href*="2018/05/30/Hello"]')
+      var orginLink = new URL(elem.href)
+      var connectSign = orginLink.search.length ? '&' : '?'
+      elem.href = `${elem.href}${link.search}${connectSign}${utm}`
+
     } else if (
       onAppBrowser &&
       !link.search.match(/utm_/) &&
@@ -410,14 +430,13 @@
       var utm = sessionStorage.length > 0 ? sessionStorage.getItem('utm') : localStorage.getItem('utm')
       var connectSign = link.search.length ? '&' : '?'
       history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
+      document.getElementById('LOGIC2New').textContent = `${link.pathname}${link.search}${connectSign}${utm}`
     }
     document.cookie = "username=John Doe";
 	document.getElementById('sessionStorageAfter').textContent = JSON.stringify(sessionStorage)
   document.getElementById('localStorageAfter').textContent = JSON.stringify(localStorage)
   document.getElementById('cookieAfter').textContent = document.cookie
 	</script>
-	    
-	<a href="https://hohh0115.github.io./2018/06/01/JS%20or%20CSS%20-%20%E5%88%97%E5%8D%B0%E9%A0%81%E9%9D%A2/">GOGOGO</a>
   <br>
   <br>
 	   
