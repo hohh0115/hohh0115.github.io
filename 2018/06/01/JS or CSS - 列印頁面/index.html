@@ -803,7 +803,7 @@ if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
   history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
   document.getElementById('LOGIC2New').textContent = `${link.pathname}${link.search}${connectSign}${utm}`
 }
-document.cookie = "username=" + decodeURIComponent(location.pathname);
+document.cookie = 'username=' + decodeURIComponent(location.pathname) + '; path=/; SameSite=None; Secure'
 document.getElementById('sessionStorageAfter').textContent = JSON.stringify(sessionStorage)
 document.getElementById('localStorageAfter').textContent = JSON.stringify(localStorage)
 document.getElementById('cookieAfter').textContent = document.cookie
