@@ -417,7 +417,7 @@
       var elem = document.querySelector('a[href*="2018/05/30/Hello"]')
       var orginLink = new URL(elem.href)
       var connectSign = orginLink.search.length ? '&' : '?'
-      elem.href = `${elem.href}${link.search}${connectSign}${utm}`
+      elem.href = `${elem.href}${link.search}${connectSign}${utm.join('&')}`
 
     } else if (
       onAppBrowser &&
