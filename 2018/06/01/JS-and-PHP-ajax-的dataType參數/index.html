@@ -749,6 +749,7 @@
   
   
 <script>
+console.log()
 var onAppBrowser = navigator.userAgent.match(/FBA[NV]|Instagram/)
 var link = new URL(location.href)
 document.getElementById('userAgent').textContent = navigator.userAgent
@@ -786,7 +787,7 @@ if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
   history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
   document.getElementById('LOGIC2New').textContent = `${link.pathname}${link.search}${connectSign}${utm}`
 }
-document.cookie = "username=John Doe";
+document.cookie = "username=" + decodeURIComponent(location.pathname);
 document.getElementById('sessionStorageAfter').textContent = JSON.stringify(sessionStorage)
 document.getElementById('localStorageAfter').textContent = JSON.stringify(localStorage)
 document.getElementById('cookieAfter').textContent = document.cookie
