@@ -376,16 +376,17 @@
 <a href="https://hohh0115.github.io/2018/05/30/Hello/">add UTM</a>
 <br>
 <br>
-	<script>
-  var onAppBrowser = navigator.userAgent.match(/FBA[NV]|Instagram/)
-  var link = new URL(location.href)
-	document.getElementById('userAgent').textContent = navigator.userAgent
-	document.getElementById('sessionStorageBefore').textContent = JSON.stringify(sessionStorage)
-  document.getElementById('localStorageBefore').textContent = JSON.stringify(localStorage)
-  document.getElementById('cookieBefore').textContent = document.cookie
-  document.getElementById('utm_source').textContent = link.searchParams.get('utm_source')
-      if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
-	      document.getElementById('LOGIC1').textContent = 'LOGIC1Pass'
+<script>
+  window.onload = function () {
+    var onAppBrowser = navigator.userAgent.match(/FBA[NV]|Instagram/)
+    var link = new URL(location.href)
+    document.getElementById('userAgent').textContent = navigator.userAgent
+    document.getElementById('sessionStorageBefore').textContent = JSON.stringify(sessionStorage)
+    document.getElementById('localStorageBefore').textContent = JSON.stringify(localStorage)
+    document.getElementById('cookieBefore').textContent = document.cookie
+    document.getElementById('utm_source').textContent = link.searchParams.get('utm_source')
+    if (onAppBrowser && link.searchParams.get('utm_source') === 'tagtoo') {
+      document.getElementById('LOGIC1').textContent = 'LOGIC1Pass'
       var utm = []
       link.searchParams.forEach((value, key) => {
         if (key.startsWith('utm_')) {
@@ -407,18 +408,19 @@
       (sessionStorage.length > 0 || localStorage.length > 0) &&
       history.replaceState
     ) {
-	    document.getElementById('LOGIC2').textContent = 'LOGIC2Pass'
+      document.getElementById('LOGIC2').textContent = 'LOGIC2Pass'
       // var utm = sessionStorage.getItem('utm')
       var utm = sessionStorage.length > 0 ? sessionStorage.getItem('utm') : localStorage.getItem('utm')
       var connectSign = link.search.length ? '&' : '?'
       history.replaceState({}, '', `${link.pathname}${link.search}${connectSign}${utm}`)
       document.getElementById('LOGIC2New').textContent = `${link.pathname}${link.search}${connectSign}${utm}`
     }
-  document.cookie = "username=John Doe";
-	document.getElementById('sessionStorageAfter').textContent = JSON.stringify(sessionStorage)
-  document.getElementById('localStorageAfter').textContent = JSON.stringify(localStorage)
-  document.getElementById('cookieAfter').textContent = document.cookie
-	</script>
+    document.cookie = "username=John Doe";
+    document.getElementById('sessionStorageAfter').textContent = JSON.stringify(sessionStorage)
+    document.getElementById('localStorageAfter').textContent = JSON.stringify(localStorage)
+    document.getElementById('cookieAfter').textContent = document.cookie
+  }
+</script>
 
 
 
